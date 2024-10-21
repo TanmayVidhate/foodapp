@@ -1,14 +1,15 @@
 import React from 'react'
 import Navbar from '../../Components/Navbar/Navbar';
 import styled from 'styled-components';
-import BgImg from './image/banner.png'
+// import BgImg from './image/banner.png'
+import Card from '../../Components/Cards/Card.js';
 function Home() {
     return (
         <>
             <Navbar />
-            <CardHolder>
-                <img src={BgImg} alt='banner' />
-            </CardHolder>
+            <CardWrapper>
+                <Card />
+            </CardWrapper>
         </>
     )
 }
@@ -16,13 +17,10 @@ function Home() {
 export default Home;
 
 
-const CardHolder = styled.div`
-height: calc(100vh - 174px);
-border: 1px solid yellow;
+const CardWrapper = styled.div`
+height: calc(100vh - 178px);
+/* border: 1px solid yellow; */
+background-image: url("banner.png");
+background-size: cover;
 
-img{
-    height: 100%;
-    width: 100%;
-    object-fit:cover;
-}
 `;
