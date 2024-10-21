@@ -57,6 +57,7 @@ const ButtonContainer = styled.section`
 display: flex;
 justify-content: center;
 gap: 1vw;
+padding-bottom: 1vw;
 `;
 
 const Button = styled.button`
