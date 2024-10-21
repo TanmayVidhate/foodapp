@@ -1,6 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+
+const BASE_URL ="http://localhost:9000/"
 function Card() {
+
+
+    
     return (
         <>
             <Cards>
