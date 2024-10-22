@@ -39,7 +39,7 @@ const TopContainer = styled.section`
 display: flex;
 justify-content: space-between;
 align-items: center;
-height: 10vh;
+height: 5vh;
 padding: 1vw;
 
 .search{
