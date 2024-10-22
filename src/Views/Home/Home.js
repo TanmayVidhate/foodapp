@@ -42,19 +42,17 @@ function Home() {
     return (
         <>
             <Navbar />
-            <CardWrapper>
+            <Container>
                 <Card data={data} />
-            </CardWrapper>
+            </Container>
         </>
     )
 }
 
 export default Home;
 
-
-const CardWrapper = styled.div`
-height: calc(100vh - 178px);
-/* border: 1px solid yellow; */
+const Container = styled.div`
+height: calc(100vh - 170px);
 background-image: url("banner.png");
 background-size: cover;
 
