@@ -1,25 +1,34 @@
-import React from 'react'
+
 import styled from 'styled-components'
-
-const BASE_URL ="http://localhost:9000/"
-function Card() {
+import { BASE_URL } from '../../Views/Home/Home';
 
 
-    
+function Card({ data }) {
+
     return (
         <>
             <Cards>
+                {
+                    data?.map(({ image, name, price, text, type }) => (
+                        <FoodCard key={type}>
+                            <div>
+                                <div className='image'>
+                                    <img src={BASE_URL + image} alt='img' />
+                                </div>
 
-                <div className='cards_image'>
+                                <div className='name'>
+                                    {
+                                        name
+                                    }
 
-                </div>
+                                </div>
 
-                <div className='food_info'>
-                    <div className='card_title'>XYz</div>
-                    <div className='card_descp'>lo</div>
-                </div>
+                                
+                            </div>
+                        </FoodCard>
+                    ))
+                }
             </Cards>
-
         </>
     )
 }
@@ -27,9 +36,32 @@ function Card() {
 export default Card;
 
 const Cards = styled.div`
-width: 300px;
+
+`;
+
+const FoodCard = styled.div`
+width: 350px;
 border:1px solid red;
 font-size: 1vw;
 padding: 1vw;
+margin: 1vw;
 border-radius: 5px;
+font-size: 1vw;
+
+.image{
+    img{
+        width: 10vw;
+
+    }
+}
+
+div{
+    display: flex;
+
+}
+
+.name{
+    display: block;
+    border: 1px solid yellow;
+}
 `;
