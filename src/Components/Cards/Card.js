@@ -17,9 +17,7 @@ function Card({ data }) {
                                 </div>
 
                                 <div className='name'>
-                                    {
-                                        name
-                                    }
+                                    <h3>{name}</h3>
                                     <div className='text'>
                                         {text}
                                     </div>
@@ -83,9 +81,12 @@ div{
 .btn{
     text-align: end;
     button{
+        margin-top: 1vw;
         padding: .5vw;
         text-align: end;
-        background-color: red;
+        border: none;
+        border-radius: 5px;
+        background-color: rgb(255, 67, 67);
     }
 }
 `;
