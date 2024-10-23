@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
-import Foodlogo from './image/logo.png'
-function Navbar() {
+import Foodlogo from './image/logo.png';
+// import { type } from '@testing-library/user-event/dist/type';
+
+function Navbar(data) {
+    let filterbtns =[
+        {
+            name:"All",
+            type:"all"
+        },
+        {
+            name:"Breakfast",
+            type:"breakfats"
+        },
+        {
+            name:"Lunch",
+            type:"lunch"
+        },
+        {
+            name:"Dinner",
+            type:"dinner"
+        }
+    ];
+    
+    let arr = Object.values(data);
+    const [filterdata, setFilterData] = useState("");
+    const Search = (e) => {
+        const searchvalue = e.target.value;
+        if (searchvalue === "") {
+            setFilterData(null);
+        }
+        const filter = arr?.filter((food) => food.name.toLowerCase().includes(searchvalue.toLowerCase()));
+        setFilterData(filter);
+    }
+
     return (
         <>
             <Container>
@@ -11,17 +43,20 @@ function Navbar() {
                     </div>
 
                     <div className='search'>
-                        <input
+                        <input onChange={Search}
                             placeholder='Search Food...'
                         />
                     </div>
                 </TopContainer>
 
                 <ButtonContainer>
-                    <Button>All</Button>
-                    <Button>Breakfast</Button>
-                    <Button>Lunch</Button>
-                    <Button>Dinner</Button>
+                    {/* {
+                        filterbtns.map((button) => (
+                            <Button key={button.name} onClick={()=>{filterFood(button.type)}}>
+                                {buttonname}
+                            </Button>
+                        ))
+                    } */}
                 </ButtonContainer>
             </Container>
         </>
@@ -60,10 +95,11 @@ gap: 1vw;
 padding-bottom: 1vw;
 `;
 
-const Button = styled.button`
+export const Button = styled.button`
     background-color:#ff4343;
     color: #FFFFFF;
     border-radius: 5px;
-    padding: 1vw 1vw;
+    padding: 0.8vw 0.8vw;
     border: none;
+    margin-top: 1vw;
 `;

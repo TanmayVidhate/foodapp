@@ -30,18 +30,16 @@ function Home() {
             catch (Error) {
                 console.log("Unable to fetch data");
             }
-
         }
         Fetchdata();
     }, [])
 
-    console.log(data)
     if (error) return <div>{error}</div>
 
 
     return (
         <>
-            <Navbar />
+            <Navbar data={data} />
             <Container>
                 <Card data={data} />
             </Container>
@@ -52,8 +50,10 @@ function Home() {
 export default Home;
 
 const Container = styled.div`
-height: calc(100vh - 170px);
+height: calc(100vh - 178px);
 background-image: url("banner.png");
 background-size: cover;
 
 `;
+
+

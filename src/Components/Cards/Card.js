@@ -1,7 +1,7 @@
 
 import styled from 'styled-components'
 import { BASE_URL } from '../../Views/Home/Home';
-
+import { Button } from '../Navbar/Navbar';
 
 function Card({ data }) {
 
@@ -10,7 +10,7 @@ function Card({ data }) {
             <Cards>
                 {
                     data?.map(({ image, name, price, text, type }) => (
-                        <FoodCard key={type}>
+                        <FoodCard key={name}>
                             <div>
                                 <div className='image'>
                                     <img src={BASE_URL + image} alt='img' />
@@ -23,15 +23,16 @@ function Card({ data }) {
                                     </div>
 
                                     <div className='btn'>
-                                        <button>
-                                            {price}
-                                        </button>
+                                        <Button>
+                                            ${price.toFixed(2)}
+                                        </Button>
                                     </div>
+
                                 </div>
                             </div>
                         </FoodCard>
                     ))
-                }
+                    }
             </Cards>
         </>
     )
@@ -45,20 +46,20 @@ const Cards = styled.div`
  width: 90%;
  justify-content: center;
  align-items: center;
- /* border: 5px solid black; */
  margin: 2vw auto;
 `;
 
 const FoodCard = styled.div`
 width: 380px;
-background-color: rgb(67, 66, 62);
-/* border: 1px solid red; */
+background-color: transparent;
+backdrop-filter: blur(10px);
+border: 1px solid red;
 font-size: 1vw;
 padding: 1.1vw;
 margin: 1vw;
 border-radius: 5px;
 font-size: 1vw;
-border-radius: 5px;
+border-radius: 20px;
 
 .image{
     img{
@@ -80,13 +81,5 @@ div{
 
 .btn{
     text-align: end;
-    button{
-        margin-top: 1vw;
-        padding: .5vw;
-        text-align: end;
-        border: none;
-        border-radius: 5px;
-        background-color: rgb(255, 67, 67);
-    }
 }
 `;
