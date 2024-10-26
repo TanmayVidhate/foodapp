@@ -8,23 +8,31 @@ export const BASE_URL = "http://localhost:9000";
 
 function Home() {
 
+    const [dataFromNavbar, setDataFromNavbar] = useState("");
+    const[filterNavData,setFilterNavdata] = useState("");
+
     const [error, setErorr] = useState();
 
     const [data, setdata] = useState();
 
     const [loading, setloading] = useState();
 
+    function handleDataFromChild(dataFromNavbar, filterNavData) {
+        setDataFromNavbar(dataFromNavbar);
+        setFilterNavdata(filterNavData);
+        // console.log("search data ==",dataFromNavbar);
+        // console.log("card match home page==",filterNavData);
+    }
+
     useEffect(() => {
+        
         const Fetchdata = async () => {
             setloading(true);
 
             try {
                 const response = await fetch(BASE_URL);
-
                 const json = await response.json();
-
                 setdata(json);
-
                 setloading(false);
             }
             catch (Error) {
@@ -32,17 +40,16 @@ function Home() {
             }
         }
         Fetchdata();
-    }, [])
+    },[])
 
     if (error) return <div>{error}</div>
 
-
     return (
         <>
-            <Navbar data={data} />
+            <Navbar data={data} searchBarData={handleDataFromChild} />
             <Container>
-                <Card data={data} />
-            </Container>
+                <Card data={data} dataFromNavbar={dataFromNavbar}  filterNavData={filterNavData} />
+            </Container> 
         </>
     )
 }
