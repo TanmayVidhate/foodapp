@@ -93,15 +93,15 @@ function Navbar({searchBarData}) {
                     </div>
                 </TopContainer>
 
-                <ButtonContainer>
-                    {/* {
-                        filterbtns.map((button) => (
-                            <Button key={button.name} onClick={()=>{filterFood(button.type)}}>
-                                {buttonname}
+                {/* <ButtonContainer>
+                    {
+                        filterbtns.map((name,type) => (
+                            <Button key={name} onClick={()=>{filterFood(type);setButtonName(name)}}>
+                                {buttonName}
                             </Button>
                         ))
-                    } */}
-                </ButtonContainer>
+                    }
+                </ButtonContainer> */}
             </Container>
         </>
     )

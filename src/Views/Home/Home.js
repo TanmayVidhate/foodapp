@@ -40,7 +40,9 @@ function Home() {
             }
         }
         Fetchdata();
-    },[])
+    },[
+
+    ])
 
     if (error) return <div>{error}</div>
 
@@ -57,7 +59,7 @@ function Home() {
 export default Home;
 
 const Container = styled.div`
-height: calc(100vh - 178px);
+height: calc(100vh - 97px);
 background-image: url("banner.png");
 background-size: cover;
 

@@ -17,7 +17,6 @@ function Card({ data, dataFromNavbar, filterNavData }) {
         return (
             <>
                 <Cards>
-
                     {
                         data?.map(({ image, name, price, text, type }) => (
                             <FoodCard key={name}>
@@ -48,11 +47,9 @@ function Card({ data, dataFromNavbar, filterNavData }) {
         )
     }
     else {
-
         return (
             <>
                 <Cards>
-
                     {
                         arr?.map(({ image, name, price, text, type }) => (
                             <FoodCard key={name}>
@@ -77,12 +74,13 @@ function Card({ data, dataFromNavbar, filterNavData }) {
                                 </div>
                             </FoodCard>
                         ))
+
                     }
                 </Cards>
             </>
         );
-
     }
+
 }
 
 export default Card;
@@ -90,14 +88,17 @@ export default Card;
 const Cards = styled.div`
  display: flex;
  flex-wrap: wrap;
- width: 90%;
+ width: 100%;
  justify-content: center;
  align-items: center;
+ /* flex-direction: column; */
+ flex-wrap: wrap;
  margin: 2vw auto;
 `;
 
 const FoodCard = styled.div`
-width: 380px;
+width: 370px;
+/* height:190px; */
 background-color: transparent;
 backdrop-filter: blur(10px);
 border: 1px solid red;
