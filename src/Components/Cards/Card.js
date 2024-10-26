@@ -2,40 +2,87 @@
 import styled from 'styled-components'
 import { BASE_URL } from '../../Views/Home/Home';
 import { Button } from '../Navbar/Navbar';
+import { type } from '@testing-library/user-event/dist/type';
 
-function Card({ data }) {
+function Card({ data, dataFromNavbar, filterNavData }) {
 
-    return (
-        <>
-            <Cards>
-                {
-                    data?.map(({ image, name, price, text, type }) => (
-                        <FoodCard key={name}>
-                            <div>
-                                <div className='image'>
-                                    <img src={BASE_URL + image} alt='img' />
-                                </div>
+    // console.log("cards page==",data)
+    // console.log("navbar data cardspage==",dataFromNavbar);
+    console.log("filterdate==", filterNavData);
+    let arr = [];
+    arr = [...filterNavData];
+    // console.log( typeof(arr))
 
-                                <div className='name'>
-                                    <h3>{name}</h3>
-                                    <div className='text'>
-                                        {text}
+    if (dataFromNavbar === "") {
+        return (
+            <>
+                <Cards>
+
+                    {
+                        data?.map(({ image, name, price, text, type }) => (
+                            <FoodCard key={name}>
+                                <div>
+                                    <div className='image'>
+                                        <img src={BASE_URL + image} alt='img' />
                                     </div>
 
-                                    <div className='btn'>
-                                        <Button>
-                                            ${price.toFixed(2)}
-                                        </Button>
-                                    </div>
+                                    <div className='name'>
+                                        <h3>{name}</h3>
+                                        <div className='text'>
+                                            {text}
+                                        </div>
 
+                                        <div className='btn'>
+                                            <Button>
+                                                ${price.toFixed(2)}
+                                            </Button>
+                                        </div>
+
+                                    </div>
                                 </div>
-                            </div>
-                        </FoodCard>
-                    ))
+                            </FoodCard>
+                        ))
                     }
-            </Cards>
-        </>
-    )
+                </Cards>
+            </>
+        )
+    }
+    else {
+
+        return (
+            <>
+                <Cards>
+
+                    {
+                        arr?.map(({ image, name, price, text, type }) => (
+                            <FoodCard key={name}>
+                                <div>
+                                    <div className='image'>
+                                        <img src={BASE_URL + image} alt='img' />
+                                    </div>
+
+                                    <div className='name'>
+                                        <h3>{name}</h3>
+                                        <div className='text'>
+                                            {text}
+                                        </div>
+
+                                        <div className='btn'>
+                                            <Button>
+                                                ${price.toFixed(2)}
+                                            </Button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </FoodCard>
+                        ))
+                    }
+                </Cards>
+            </>
+        );
+
+    }
 }
 
 export default Card;
