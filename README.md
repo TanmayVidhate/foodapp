@@ -1,16 +1,16 @@
 # Food Website 🥘
-Foody website single page react application.Where user can see different Kind of Foods listed on the page.So he/she can search food using search functionality in top right corner🔎.  
+Foody website single page react application.Where users can see different Kind of Foods listed on the page.So he/she can search for food using the search functionality in the top right corner🔎.  
 
-***styled-components*** are used for the style the components ✨.
-- No class name required.
-- Easy to tnderstand and delete.
-- No different files requireds to style components. 
+***styled-components*** are used for the style of the components ✨.
+- No class name is required.
+- Easy to understand and delete.
+- No different files required to style components. 
 
         `npm install styled-components`
 
 [Documentations](https://styled-components.com/docs)
 
-Basic React Concepts likes **Props**, **Lifting State Up**.Data in Food Cards is get from the **API**.
+Basic React Concepts like **Props**, **Lifting State Up**.Data in Food Cards is obtained from the **API**.
 
 ## Images 📸
 ![image1](./public/Screenshot%20(206).png)
